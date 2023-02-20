@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rosa200"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="110dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/kiri" />
+
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="332dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/bordes_stylo1"
+        android:fontFamily="@font/atma_bold"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="@string/bienvenidos"
+        android:textColor="@color/rosa1000"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="303dp"
+        android:layout_height="56dp"
+        android:layout_margin="20dp"
+        android:layout_marginTop="84dp"
+        android:textColorHint="@color/rosa1000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/usuario"
+            android:layout_width="296dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="44dp"
+            android:hint="@string/label_usuario"
+            android:textColorHint="@color/rosa1000"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="303dp"
+        android:layout_height="56dp"
+        android:layout_margin="20dp"
+        android:textColorHint="@color/rosa1000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contrasena"
+            android:layout_width="296dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="36dp"
+            android:hint="@string/label_contrasena"
+            android:inputType="textPassword"
+            android:textColorHint="@color/rosa1000"
+            app:layout_constraintBottom_toTopOf="@+id/loginButton"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+            app:layout_constraintVertical_bias="0.104"
+            tools:ignore="TextContrastCheck"
+            tools:layout_editor_absoluteX="59dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="211dp"
+        android:layout_height="59dp"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/bordes_stylo1"
+        android:gravity="center"
+        android:text="@string/btn_login"
+        android:textColor="@color/rosa1000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchRecuerdame" />
+
+    <Switch
+        android:id="@+id/switchRecuerdame"
+        android:layout_width="139dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/recuerdame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

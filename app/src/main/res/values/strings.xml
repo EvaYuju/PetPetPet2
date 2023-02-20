@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">PetPetPet</string>
+    <string name="bienvenidos">Bienvenidos a PetPetPet</string>
+    <string name="tit_usuario">Usuario</string>
+    <string name="btn_login">Login</string>
+    <string name="recuerdame">Recuérdame</string>
+    <string name="tit_registro">Registro de Animales de Compañía</string>
+    <string name="tit_cod">Cod. Ident:</string>
+    <string name="tit_nombre">Nombre:</string>
+    <string name="tit_raza">Raza:</string>
+    <string name="tit_sexo">Sexo:</string>
+    <string name="tit_fec">Fecha Nac.:</string>
+    <string name="tit_dni">DNI:</string>
+    <string name="txt_cod"> Código animal</string>
+    <string name="txt_nombre"> Nombre animal</string>
+    <string name="txt_raza"> Raza</string>
+    <string name="txt_sexo"> H/M</string>
+    <string name="txt_fec"> Fecha Nac.</string>
+    <string name="txt_dni"> Ingrese su DNI</string>
+    <string name="btn_alta">Alta</string>
+    <string name="btn_modif">Modifica</string>
+    <string name="btn_borra">Borra</string>
+    <string name="btn_consul">Consulta</string>
+    <string name="btn_consulTodo">Consulta Todas</string>
+    <string name="tit_lista">Lista de Animales Almacenados</string>
+    <string name="btn_volver">Volver</string>
+    <string name="label_usuario">Usuario</string>
+    <string name="label_contrasena">Contraseña</string>
+    <string name="image">KiriLogo</string>
+
+
+</resources>
