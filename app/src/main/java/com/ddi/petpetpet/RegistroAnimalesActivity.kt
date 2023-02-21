@@ -1,5 +1,6 @@
 package com.ddi.petpetpet
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -35,32 +36,41 @@ class RegistroAnimalesActivity : AppCompatActivity() {
             val sexo = binding.ptSexo.text.toString()
             val fecnac = binding.ptFecNac.text.toString()
             val dniPropietario = binding.ptDNI.text.toString()
+            val imagen =
 
-            // Verificar si todos los campos están llenos
-            if (codigo.isNotEmpty() && nombre.isNotEmpty() && raza.isNotEmpty() && sexo.isNotEmpty() && fecnac.isNotEmpty() && dniPropietario.isNotEmpty()) {
-                // Verificar si el código ya existe en la base de datos
-                val dbHandler = DatabaseHelper(this, null)
-                val animal = dbHandler.getAnimal(codigo)
-                if (animal == null) {
-                    // Insertar el nuevo animal en la base de datos
-                    dbHandler.insertAnimal(codigo, nombre, raza, sexo, fecnac, dniPropietario)
-                    // Limpiar los campos después de insertar
-                    binding.ptCodigo.setText("")
-                    binding.ptNombre.setText("")
-                    binding.ptRaza.setText("")
-                    binding.ptSexo.setText("")
-                    binding.ptFecNac.setText("")
-                    binding.ptDNI.setText("")
-                    // Aquí es donde se llama a Snackbar en lugar de Toast
-                    Snackbar.make(binding.root, "Datos insertados", Snackbar.LENGTH_SHORT).show()
+                // Verificar si todos los campos están llenos
+                if (codigo.isNotEmpty() && nombre.isNotEmpty() && raza.isNotEmpty() && sexo.isNotEmpty() && fecnac.isNotEmpty() && dniPropietario.isNotEmpty()) {
+                    // Verificar si el código ya existe en la base de datos
+                    val dbHandler = DatabaseHelper(this, null)
+                    val animal = dbHandler.getAnimal(codigo)
+                    if (animal == null) {
+                        // Insertar el nuevo animal en la base de datos
+                        dbHandler.insertAnimal(codigo, nombre, raza, sexo, fecnac, dniPropietario)
+                        // Limpiar los campos después de insertar
+                        binding.ptCodigo.setText("")
+                        binding.ptNombre.setText("")
+                        binding.ptRaza.setText("")
+                        binding.ptSexo.setText("")
+                        binding.ptFecNac.setText("")
+                        binding.ptDNI.setText("")
+                        // Aquí es donde se llama a Snackbar en lugar de Toast
+                        Snackbar.make(binding.root, "Datos insertados", Snackbar.LENGTH_SHORT).show()
+                    } else {
+                        // Aquí es donde se llama a Snackbar en lugar de Toast
+                        Snackbar.make(
+                            binding.root,
+                            "El código ya existe en la base de datos",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
                 } else {
                     // Aquí es donde se llama a Snackbar en lugar de Toast
-                    Snackbar.make(binding.root, "El código ya existe en la base de datos", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(
+                        binding.root,
+                        "Todos los campos son obligatorios",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
-            } else {
-                // Aquí es donde se llama a Snackbar en lugar de Toast
-                Snackbar.make(binding.root, "Todos los campos son obligatorios", Snackbar.LENGTH_SHORT).show()
-            }
         }
 
         // Botón actualizar
@@ -94,7 +104,11 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                 Snackbar.make(binding.root, "Datos actualizados", Snackbar.LENGTH_SHORT).show()
             } else {
                 // Si no se encuentra el animal en la base de datos, mostramos un mensaje de error
-                Snackbar.make(binding.root, "No se ha encontrado el animal con código $codigo", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(
+                    binding.root,
+                    "No se ha encontrado el animal con código $codigo",
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -115,7 +129,8 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                 binding.ptFecNac.setText("")
                 binding.ptDNI.setText("")
             } else {
-                Snackbar.make(binding.root, "No se encontró el registro", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, "No se encontró el registro", Snackbar.LENGTH_SHORT)
+                    .show()
             }
         }
 
@@ -150,10 +165,21 @@ class RegistroAnimalesActivity : AppCompatActivity() {
                 dbHandler.close()
             } else {
 
-                Snackbar.make(binding.root,"No se encontraron resultados", Snackbar.LENGTH_SHORT).show() }
+                Snackbar.make(binding.root, "No se encontraron resultados", Snackbar.LENGTH_SHORT)
+                    .show()
+            }
+
         }
+        // Botón leer
+        // Botón consulta todos
+        binding.btnConsulTodo.setOnClickListener {
+            val intent = Intent(this, ReciclerViewActivity::class.java)
+            // Introduce en el contenedor el dato que pasamos a la otra actividad
+            intent.putExtra("Usuario", usuario)
+            // Llama a la otra actividad
+            startActivity(intent)
 
+        }
     }
-
 
 }

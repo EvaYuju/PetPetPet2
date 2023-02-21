@@ -6,4 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".ReciclerViewActivity">
 
+    <TextView
+        android:id="@+id/textViewTituloRegistro2"
+        android:layout_width="365dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bordes_stylo1"
+        android:fontFamily="@font/atma_bold"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="@string/tit_lista"
+        android:textColor="@color/rosa1000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usuarioLogeado2" />
+
+    <TextView
+        android:id="@+id/usuarioLogeado2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="13dp"
+        android:textColor="@color/rosa1000"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTituloRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerAnimal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnVolver"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTituloRegistro2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewTituloRegistro2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloRegistro2" />
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="170dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="42dp"
+        android:text="@string/btn_volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

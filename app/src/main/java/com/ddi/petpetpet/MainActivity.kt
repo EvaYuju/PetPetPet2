@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.ddi.petpetpet.databinding.ActivityMainBinding
+import com.ddi.petpetpet.db.DatabaseHelper
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -36,8 +38,7 @@ class MainActivity : AppCompatActivity() {
             // Verificar si el usuario y contraseña son válidos
             if (dbHelper.checkUser(usuario, contrasena)) {
                 // El usuario y la contraseña son correctos
-                val toast = Toast.makeText(this, "Bienvenido, $usuario", Toast.LENGTH_LONG)
-                toast.show()
+                Snackbar.make(binding.root, "Bienvenido, $usuario", Snackbar.LENGTH_SHORT).show()
 
                 // Genera el contenedor de datos que llamaremos intent
                 val intent = Intent(this, RegistroAnimalesActivity::class.java )
@@ -50,8 +51,7 @@ class MainActivity : AppCompatActivity() {
 
             } else {
                 // El usuario y/o la contraseña son incorrectos
-                val toast2 = Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG)
-                toast2.show()
+                Snackbar.make(binding.root, "Usuario o contraseña incorrectos", Snackbar.LENGTH_SHORT).show()
             }
 
         }//btnLogin

@@ -6,8 +6,8 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.widget.Toast
-import com.ddi.petpetpet.databinding.ActivityRegistroAnimalBinding
+import com.ddi.petpetpet.RegistroAnimalesActivity
+import com.ddi.petpetpet.modelos.Animal
 
 var BD="baseDatosPetpetpet";
 class DatabaseHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
@@ -89,8 +89,9 @@ class DatabaseHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
             val sexo = cursor.getString(cursor.getColumnIndex(COLUMN_SEXO))
             val fecnac = cursor.getString(cursor.getColumnIndex(COLUMN_FECNAC))
             val dniPropietario = cursor.getString(cursor.getColumnIndex(COLUMN_DNI))
+            val imagen = cursor.getString(cursor.getColumnIndex(COLUMN_IMG))
 
-            animal = Animal(codigo, nombre, raza, sexo, fecnac, dniPropietario)
+            animal = Animal(codigo, nombre, raza, sexo, fecnac, dniPropietario, imagen)
         }
 
         cursor.close()
@@ -125,6 +126,7 @@ class DatabaseHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         contenedordeValores.put(COLUMN_SEXO, sexo)
         contenedordeValores.put(COLUMN_FECNAC, fecnac)
         contenedordeValores.put(COLUMN_DNI, dniPropietario)
+        contenedordeValores.put(COLUMN_IMG, randomImage())
         val resultado = db.insert(TABLE_NAME_ANI, null, contenedordeValores)
         // Verificar que los campos estén llenos
         if (codigo.isEmpty() || nombre.isEmpty() || raza.isEmpty() || sexo.isEmpty() || fecnac.isEmpty() || dniPropietario.isEmpty()) {
@@ -138,6 +140,22 @@ class DatabaseHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         }
 
         //db.close()
+    }
+    private fun randomImage(): String {
+        val list = mutableListOf(
+            "ayud",
+            "betho",
+            "botas",
+            "felix",
+            "garfield",
+            "isidoro",
+            "milu",
+            "pepa",
+            "pluto",
+            "scooby",
+            "snoopy"
+        )
+        return list.random()
     }
 
     // READ
