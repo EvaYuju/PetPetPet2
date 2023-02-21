@@ -29,6 +29,13 @@ class RegistroAnimalesActivity : AppCompatActivity() {
         // Asignar escuchadores de clic a los botones
         // Botón insertar
         binding.btnAlta.setOnClickListener {
+            // Limpiar los campos
+            binding.ptCodigo.setText("")
+            binding.ptNombre.setText("")
+            binding.ptRaza.setText("")
+            binding.ptSexo.setText("")
+            binding.ptFecNac.setText("")
+            binding.ptDNI.setText("")
             // Código para guardar el registro
             val codigo = binding.ptCodigo.text.toString()
             val nombre = binding.ptNombre.text.toString()
