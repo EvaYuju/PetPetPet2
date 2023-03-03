@@ -41,7 +41,7 @@ class RegistroAnimalesActivity : AppCompatActivity() {
             val sexo = binding.ptSexo.text.toString()
             val fecnac = binding.ptFecNac.text.toString()
             val dniPropietario = binding.ptDNI.text.toString()
-            val imagen =
+            //val imagen =
 
                 // Verificar si todos los campos están llenos
                 if (codigo.isNotEmpty() && nombre.isNotEmpty() && raza.isNotEmpty() && sexo.isNotEmpty() && fecnac.isNotEmpty() && dniPropietario.isNotEmpty()) {
